@@ -1,0 +1,132 @@
+uuid: 1977dc0e-1aa2-4da8-a192-a044fcd7c630
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.cast.body
+    - field.field.node.cast.field_age
+    - field.field.node.cast.field_gender
+    - field.field.node.cast.field_p
+    - node.type.cast
+  module:
+    - layout_builder
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: true
+    sections:
+      -
+        layout_id: layout_twocol_section
+        layout_settings:
+          label: 'Section 1'
+          column_widths: 25-75
+          context_mapping: {  }
+        components:
+          06e6cbcc-9b6d-4cd9-85e3-9505e9fa4128:
+            uuid: 06e6cbcc-9b6d-4cd9-85e3-9505e9fa4128
+            region: first
+            configuration:
+              id: 'field_block:node:cast:field_p'
+              label: 'Person''s Image'
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: hidden
+                type: media_thumbnail
+                settings:
+                  image_style: thumbnail
+                  image_link: content
+                third_party_settings: {  }
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+            additional: {  }
+            weight: 0
+          e7ef376e-4db4-4965-af11-a5f89504de74:
+            uuid: e7ef376e-4db4-4965-af11-a5f89504de74
+            region: second
+            configuration:
+              id: 'field_block:node:cast:field_age'
+              label: Age
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: inline
+                type: number_integer
+                settings:
+                  thousand_separator: ''
+                  prefix_suffix: true
+                third_party_settings: {  }
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+            additional: {  }
+            weight: 0
+          c23c894e-5061-4e87-9866-a247ba4c903f:
+            uuid: c23c894e-5061-4e87-9866-a247ba4c903f
+            region: second
+            configuration:
+              id: 'field_block:node:cast:field_gender'
+              label: Gender
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: inline
+                type: boolean
+                settings:
+                  format: default
+                  format_custom_true: ''
+                  format_custom_false: ''
+                third_party_settings: {  }
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+            additional: {  }
+            weight: 1
+          4ca84b52-d050-41f0-91a7-8bb0f32fd2b3:
+            uuid: 4ca84b52-d050-41f0-91a7-8bb0f32fd2b3
+            region: second
+            configuration:
+              id: 'field_block:node:cast:body'
+              label: Bio
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: hidden
+                type: text_trimmed
+                settings:
+                  trim_length: 200
+                third_party_settings: {  }
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+            additional: {  }
+            weight: 2
+        third_party_settings: {  }
+id: node.cast.teaser
+targetEntityType: node
+bundle: cast
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_age: true
+  field_gender: true
+  field_p: true
+  langcode: true
+  search_api_excerpt: true

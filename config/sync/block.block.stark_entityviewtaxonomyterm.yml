@@ -1,0 +1,36 @@
+uuid: 5288a258-8bb4-4b64-aaae-1deabba5c096
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - node
+    - system
+  theme:
+    - stark
+id: stark_entityviewtaxonomyterm
+theme: stark
+region: content
+weight: -4
+provider: null
+plugin: 'entity_view:taxonomy_term'
+settings:
+  id: 'entity_view:taxonomy_term'
+  label: 'Entity view (Taxonomy term)'
+  label_display: visible
+  provider: ctools
+  view_mode: full
+  context_mapping:
+    entity: '@taxonomy_term.taxonomy_term_route_context:taxonomy_term'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      news: news
+  request_path:
+    id: request_path
+    negate: false
+    pages: /news

@@ -1,0 +1,32 @@
+uuid: 204856c6-d9e3-4a39-91f9-0477c0586032
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.authenticated_user_links
+  module:
+    - user
+    - views
+  theme:
+    - movie_db
+id: movie_db_views_block__authenticated_user_links_block_1
+theme: movie_db
+region: header
+weight: -8
+provider: null
+plugin: 'views_block:authenticated_user_links-block_1'
+settings:
+  id: 'views_block:authenticated_user_links-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated

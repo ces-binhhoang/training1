@@ -1,0 +1,32 @@
+uuid: 96289ee8-e46f-4faa-ba7a-a4815f7581ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - mail_notify
+_core:
+  default_config_hash: XVoAQ6Y96qznbDIrw5drfkXaSUyxzee96Xqa1fMTxyU
+title: 'Send emails about nodes updates'
+id: mail_notify_cron
+weight: 0
+module: mail_notify
+callback: mail_notify_cron_job_callback
+scheduler:
+  id: crontab
+  configuration:
+    rules:
+      - '0 9 * * 1'
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+      max_execution_time: 3600
+    launcher:
+      max_threads: 1
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000

@@ -1,0 +1,25 @@
+uuid: a7fa377e-f41c-42d6-9d7e-3d8d61a1fc4d
+langcode: en
+status: true
+dependencies:
+  module:
+    - quicktabs
+    - system
+  theme:
+    - stark
+id: stark_quicktabslatestnewsquicktabs
+theme: stark
+region: sidebar_first
+weight: -7
+provider: null
+plugin: 'quicktabs_block:latest_news_quick_tabs'
+settings:
+  id: 'quicktabs_block:latest_news_quick_tabs'
+  label: 'Latest News'
+  label_display: visible
+  provider: quicktabs
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/news\r\n/news/*"

@@ -1,0 +1,15 @@
+uuid: 61ed060b-2505-469c-837d-c7527820b2cd
+langcode: en
+status: true
+dependencies: {  }
+id: prod
+label: PROD
+description: ''
+weight: 0
+stackable: false
+storage: folder
+folder: ../config/prod
+module: {  }
+theme: {  }
+complete_list: {  }
+partial_list: {  }

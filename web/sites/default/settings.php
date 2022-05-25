@@ -805,7 +805,7 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 }
 
 $databases['default']['default'] = array (
-  'database' => getenv('DB_DB'),
+  'database' => getenv('DB_DB', 'drupal99'),
   'username' => getenv('DB_USER'),
   'password' => getenv('DB_PASS'),
   'prefix' => '',
@@ -815,3 +815,28 @@ $databases['default']['default'] = array (
   'driver' => 'mysql',
 );
 $settings['config_sync_directory'] = '../config/sync';
+
+
+$env = 'local';
+switch ($env) {
+  case 'prod':
+    $config['config_split.config_split.prod']['status'] = TRUE;
+    $config['config_split.config_split.local']['status'] = FALSE;
+    $config['config_split.config_split.dev']['status'] = FALSE;
+    break;
+  case 'dev':
+    $config['config_split.config_split.prod']['status'] = FALSE;
+    $config['config_split.config_split.local']['status'] = FALSE;
+    $config['config_split.config_split.dev']['status'] = TRUE;
+    break;
+  case 'local':
+    $config['config_split.config_split.prod']['status'] = FALSE;
+    $config['config_split.config_split.local']['status'] = TRUE;
+    $config['config_split.config_split.dev']['status'] = FALSE;
+    break;
+  default:
+    $config['config_split.config_split.prod']['status'] = FALSE;
+    $config['config_split.config_split.local']['status'] = TRUE;
+    $config['config_split.config_split.dev']['status'] = FALSE;
+}
+

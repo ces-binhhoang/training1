@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the SASS Starterkit subtheme.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_system_theme_settings_alter() for settings form.
+ *
+ * Replace Barrio setting options with subtheme ones.
+ */
+function movie_db_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+  $form['components']['navbar']['bootstrap_barrio_navbar_top_background']['#options'] = array(
+    'bg-primary' => t('Primary'),
+    'bg-secondary' => t('Secondary'),
+    'bg-light' => t('Light'),
+    'bg-dark' => t('Dark'),
+    'bg-white' => t('White'),
+    'bg-transparent' => t('Transparent'),
+  );
+  $form['components']['navbar']['bootstrap_barrio_navbar_background']['#options'] = array(
+    'bg-primary' => t('Primary'),
+    'bg-secondary' => t('Secondary'),
+    'bg-light' => t('Light'),
+    'bg-dark' => t('Dark'),
+    'bg-white' => t('White'),
+    'bg-transparent' => t('Transparent'),
+  );
+}
+
+function movie_db_preprocess_page_title(&$variables) {
+  $node = \Drupal::request()->attributes->get('node');
+  $uid  = \Drupal::currentUser()->id();
+
+  if ($node && $node->bundle() == 'movie_review' && $node->getOwner()->id() == $uid) {
+    $variables['title'] = t('@title - [You are the author]', ['@title' => $node->getTitle()]);
+  }
+}
+
+function movie_db_preprocess_page(&$variables) {
+  $variables['navbar_top_attributes']['class'][] = 'fixed-top';
+  $variables['navbar_top_attributes']['class'][] = 'menu-primary-movie-db';
+
+  $uid = \Drupal::currentUser()->id();
+
+  $variables['current_loggedin_user'] = $uid;
+  //dump($variables);
+}
+
+function movie_db_js_alter(&$javascript) {
+  $node = \Drupal::request()->attributes->get('node');
+
+  if($node != null && $node->bundle() != 'layout_pages'){
+    foreach($javascript as $key=>$item) {
+      unset($javascript[$key]);
+    }
+  }
+
+}

@@ -1,0 +1,145 @@
+uuid: 361672af-95d8-42cd-bdbc-444884a7ba71
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.movie.body
+    - field.field.node.movie.field_cast_paragraph
+    - field.field.node.movie.field_image
+    - field.field.node.movie.field_movie_links
+    - field.field.node.movie.field_movie_rating
+    - field.field.node.movie.field_movie_tags
+    - field.field.node.movie.field_movie_trailer
+    - field.field.node.movie.field_review_genre
+    - image.style.thumbnail
+    - node.type.movie
+  module:
+    - field_layout
+    - fivestar
+    - image
+    - layout_builder
+    - layout_discovery
+    - text
+    - user
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          d9e57280-77c2-484b-9063-46b0f78ef589:
+            uuid: d9e57280-77c2-484b-9063-46b0f78ef589
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:movie:field_image'
+              formatter:
+                type: image
+                label: hidden
+                settings:
+                  image_style: thumbnail
+                  image_link: content
+                third_party_settings: {  }
+            additional: {  }
+            weight: 0
+          2c15fab1-123c-450e-84ad-c3d99d68ac9c:
+            uuid: 2c15fab1-123c-450e-84ad-c3d99d68ac9c
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:movie:body'
+              formatter:
+                label: hidden
+                type: text_trimmed
+                settings:
+                  trim_length: 600
+                third_party_settings: {  }
+            additional: {  }
+            weight: 1
+          d37269ab-55d4-4235-9bfe-81ce22dc99f8:
+            uuid: d37269ab-55d4-4235-9bfe-81ce22dc99f8
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:movie:field_movie_rating'
+              formatter:
+                type: fivestar_stars
+                label: above
+                settings:
+                  text_format: average
+                  display_format: average
+                  fivestar_widget: basic
+                third_party_settings: {  }
+            additional: {  }
+            weight: 2
+          a2a87517-8be7-4f6f-bd7a-19104688ab03:
+            uuid: a2a87517-8be7-4f6f-bd7a-19104688ab03
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:movie:links'
+            additional: {  }
+            weight: 3
+        third_party_settings: {  }
+id: node.movie.teaser
+targetEntityType: node
+bundle: movie
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_trimmed
+    weight: 1
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  field_image:
+    type: image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: thumbnail
+      image_link: content
+    third_party_settings: {  }
+  field_movie_rating:
+    type: fivestar_stars
+    weight: 2
+    region: content
+    label: above
+    settings:
+      text_format: average
+      display_format: average
+      fivestar_widget: basic
+    third_party_settings: {  }
+  links:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_cast_paragraph: true
+  field_movie_links: true
+  field_movie_tags: true
+  field_movie_trailer: true
+  field_review_genre: true
+  langcode: true
+  search_api_excerpt: true

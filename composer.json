@@ -11,20 +11,36 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "https://packages.drupal.org/8"
+            "url": "https://packages.drupal.org/8",
+            "package": {
+                "name": "woothemes/flexslider",
+                "version": "2.6.3",
+                "type": "drupal-library",
+                "source": {
+                    "url": "https://github.com/woothemes/FlexSlider.git",
+                    "type": "git",
+                    "reference": "2.6.3"
+                }
+            }
         }
     ],
     "require": {
         "composer/installers": "^1.9",
         "drupal/admin_toolbar": "^3.0.0",
-        "drupal/config_split": "^2.0.0",
-        "drupal/core-composer-scaffold": "^9.2",
-        "drupal/core-project-message": "^9.2",
-        "drupal/core-recommended": "^9.2",
+        "drupal/bootstrap_barrio": "^5.5",
+        "drupal/bootstrap_sass": "^5.0",
+        "drupal/config_split": "^2.0@RC",
+        "drupal/core-composer-scaffold": "9.2.*",
+        "drupal/core-project-message": "9.2.*",
+        "drupal/core-recommended": "9.2.*",
         "drupal/devel": "^4.1",
         "drupal/environment_indicator": "^4.0.0",
+        "drupal/flexslider": "^2.0",
+        "drupal/htmlmail": "^3.0@alpha",
         "drupal/imageapi_optimize": "^4.0.0",
         "drupal/imageapi_optimize_binaries": "^1.0@alpha",
+        "drupal/libraries": "^3.0@beta",
+        "drupal/mail_notify": "^1.0",
         "drupal/search_api_solr": "^4.2",
         "drush/drush": "^10.0.0"
     },
@@ -34,7 +50,12 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true
+        }
     },
     "extra": {
         "drupal-scaffold": {
@@ -69,7 +90,8 @@
             ],
             "web/themes/custom/{$name}": [
                 "type:drupal-custom-theme"
-            ]
+            ],
+            "libraries/{$name}": ["type:drupal-library"]
         }
     }
 }

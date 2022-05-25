@@ -1,0 +1,20 @@
+_core:
+  default_config_hash: 399NBQVQFyxS1l_-84k1gltg98_pWtHnfW6FV5pvdXM
+langcode: en
+content_types:
+  - article
+  - cast
+  - flexslider_example
+  - layout_pages
+  - list
+  - movie
+  - movie_review
+  - news
+  - page
+  - webform
+roles:
+  - authenticated
+  - administrator
+  - critic
+email_from: hcbinh@gmail.com
+email_subject: 'The content changed'
