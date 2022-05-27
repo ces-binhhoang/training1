@@ -60,3 +60,16 @@ function movie_db_js_alter(&$javascript) {
   }
 
 }
+
+function movie_db_preprocess_html(&$variables) {
+  $time = date("H");
+
+  if ($time >= 11 && $time < 23) {
+    $class = 'dark-mode';
+  }else{
+    $class = '';
+  }
+
+  $variables['attributes']['class'][] = $class;
+}
+

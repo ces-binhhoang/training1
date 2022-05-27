@@ -11779,6 +11779,7 @@ a {
   display: flex;
 }
 
+
 .content-movie .content-movie-img {
   display: inline-block;
   min-height: 100px;
@@ -11876,4 +11877,16 @@ body {
 .item-list .list-group-item.active > a{
   background-color: blue;
   color: white;
+}
+
+.tooltip-val {
+  display: none;
+}
+
+.dark-mode {
+  background-color: black;
+}
+
+.normal-mode {
+  background-color: #99ccff;
 }

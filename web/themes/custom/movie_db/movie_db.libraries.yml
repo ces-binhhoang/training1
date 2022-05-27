@@ -15,4 +15,4 @@ global-styling:
 
 tooltip:
   js:
-    bootstrap/js/tooltip.js: {}
+    js/tooltip.js: {}
