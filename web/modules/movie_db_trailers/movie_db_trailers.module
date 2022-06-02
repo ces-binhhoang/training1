@@ -1,0 +1,21 @@
+<?php
+
+function movie_db_trailers_theme($existing, $type, $theme, $path): array
+{
+  return [
+    'trailers_list' => [
+      'template'  => 'trailers_list',
+      'variables' => [
+        'title' => null,
+        'items'  => [],
+        'view_more' => null
+      ]
+    ]
+  ];
+}
+
+function movie_db_trailers_preprocess_node__page(array &$variables)
+{
+  $variables['#attached']['library'][] = 'movie_db_trailers/movie_db_trailers';
+  $variables['#attached']['library'][] = 'movie_db_trailers/styles';
+}

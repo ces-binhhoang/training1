@@ -1,0 +1,5 @@
+name: Movie DB Trailers
+type: module
+description: Movie Trailers listing view
+package: Custom
+core_version_requirement: ^9

@@ -13,6 +13,6 @@ global-styling:
     - core/drupal
     - core/popperjs
 
-tooltip:
-  js:
-    js/tooltip.js: {}
+#tooltip:
+#  js:
+#    js/tooltip.js: {}

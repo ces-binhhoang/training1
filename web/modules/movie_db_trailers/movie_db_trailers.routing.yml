@@ -1,0 +1,21 @@
+movie_db_trailers:
+    path: /trailers/{node}
+    options:
+      parameters:
+        node:
+          type: entity:node
+    defaults:
+        _controller: Drupal\movie_db_trailers\Controller\TrailerController::getLinkTrailer
+        _title: 'Movie Trailers'
+    requirements:
+        _permission: 'access content'
+
+movie_db_trailers.open_modal:
+  path: /trailers/view/{video_id}
+  defaults:
+    _controller: Drupal\movie_db_trailers\Controller\TrailerController::showModalResults
+    _title: 'View Trailers'
+  requirements:
+    _permission: 'access content'
+
+

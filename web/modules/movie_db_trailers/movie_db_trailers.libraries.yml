@@ -1,0 +1,13 @@
+movie_db_trailers:
+  version: 1.x
+  css:
+    theme:
+      css/styles.css: {}
+  js:
+    js/movie_db_trailers.js: {}
+  dependencies:
+    - core/jquery #Just to be safe
+    - core/drupal.ajax #Just to be safe
+    - core/drupal.dialog #Required for dialogs
+    - core/drupal.dialog.ajax #Required for dialogs
+    - core/jquery.form #If you also want to use Ajax for form operations

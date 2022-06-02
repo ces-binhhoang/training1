@@ -53,11 +53,11 @@ function movie_db_preprocess_page(&$variables) {
 function movie_db_js_alter(&$javascript) {
   $node = \Drupal::request()->attributes->get('node');
 
-  if($node != null && $node->bundle() != 'layout_pages'){
-    foreach($javascript as $key=>$item) {
-      unset($javascript[$key]);
-    }
-  }
+  //if($node != null && $node->bundle() != 'layout_pages'){
+    //foreach($javascript as $key=>$item) {
+      //unset($javascript[$key]);
+    //}
+  //}
 
 }
 
